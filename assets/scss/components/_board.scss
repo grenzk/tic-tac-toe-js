@@ -7,5 +7,9 @@
 }
 
 .square-field {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: var(--xo-font-size);
   border: 2px solid black;
 }
