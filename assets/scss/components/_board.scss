@@ -1,6 +1,6 @@
 .board {
   display: grid;
-  grid-template: repeat(3, 1fr)/repeat(3, 1fr);
+  grid-template: repeat(3, 1fr) / repeat(3, 1fr);
   border: 2px solid black;
   width: 61.2vmin;
   height: 61.2vmin;
@@ -9,5 +9,3 @@
 .square-field {
   border: 2px solid black;
 }
-
-/*# sourceMappingURL=styles.css.map */
