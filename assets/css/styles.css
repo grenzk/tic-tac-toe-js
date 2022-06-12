@@ -37,8 +37,11 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: var(--xo-font-size);
   border: 2px solid black;
+}
+
+.sign-text {
+  font-size: var(--xo-font-size);
 }
 
 /*# sourceMappingURL=styles.css.map */
