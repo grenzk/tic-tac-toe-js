@@ -1,10 +1,14 @@
 .buttons-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   margin-top: 0.5rem;
+  column-gap: 5rem;
 }
 
 .bx {
   font-size: var(--button-font-size);
+  color: #ffd9e2;
+  text-shadow: 0 0 0 transparent, 0 0 10px #ff003c,
+    0 0 20px rgba(255, 0, 60, 0.5);
 }

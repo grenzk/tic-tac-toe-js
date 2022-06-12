@@ -18,6 +18,7 @@ body {
 
 body {
   font-family: var(--body-font);
+  background-color: black;
 }
 
 body {
@@ -29,7 +30,7 @@ body {
 .board {
   display: grid;
   grid-template: repeat(3, 1fr)/repeat(3, 1fr);
-  border: 2px solid black;
+  border: 3px solid rgba(38, 149, 255, 0.5);
   width: 61.2vmin;
   height: 61.2vmin;
 }
@@ -38,11 +39,14 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 2px solid black;
+  border: 3px solid rgba(38, 149, 255, 0.5);
+  box-shadow: 0px 0px 10px 1px rgba(38, 149, 255, 0.5);
 }
 
 .sign-text {
+  color: #ffd9e2;
   font-size: var(--xo-font-size);
+  text-shadow: 0 0 0 transparent, 0 0 10px #ff003c, 0 0 20px rgba(255, 0, 60, 0.5);
 }
 
 .title-container {
@@ -51,15 +55,23 @@ body {
   align-items: center;
 }
 
+.title-text {
+  color: #ffd9e2;
+  text-shadow: 0 0 0 transparent, 0 0 10px #ff003c, 0 0 20px rgba(255, 0, 60, 0.5);
+}
+
 .buttons-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   margin-top: 0.5rem;
+  column-gap: 5rem;
 }
 
 .bx {
   font-size: var(--button-font-size);
+  color: #ffd9e2;
+  text-shadow: 0 0 0 transparent, 0 0 10px #ff003c, 0 0 20px rgba(255, 0, 60, 0.5);
 }
 
 /*# sourceMappingURL=styles.css.map */
