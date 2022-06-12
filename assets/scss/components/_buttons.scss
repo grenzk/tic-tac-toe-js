@@ -11,4 +11,9 @@
   color: #ffd9e2;
   text-shadow: 0 0 0 transparent, 0 0 10px #ff003c,
     0 0 20px rgba(255, 0, 60, 0.5);
+  transition: 0.2s;
+}
+
+.bx:hover {
+  transform: scale(2);
 }
