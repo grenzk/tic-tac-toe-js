@@ -1,6 +1,6 @@
 const board = document.getElementById('js-board')
 
-const createBoard = () => {
+const createBoard = (() => {
   for (let i = 0; i < 9; i++) {
     let square = document.createElement('div')
     let sign = document.createElement('p')
@@ -12,6 +12,6 @@ const createBoard = () => {
     square.appendChild(sign)
     board.appendChild(square)
   }
-}
+})()
 
-createBoard()
+
