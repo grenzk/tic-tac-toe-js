@@ -1,0 +1,10 @@
+.buttons-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+
+.bx {
+  font-size: var(--button-font-size);
+}

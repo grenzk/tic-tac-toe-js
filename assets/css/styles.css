@@ -2,6 +2,7 @@
 :root {
   --body-font: "Fredoka One", cursive;
   --xo-font-size: 5rem;
+  --button-font-size: 2rem;
 }
 
 * {
@@ -42,6 +43,23 @@ body {
 
 .sign-text {
   font-size: var(--xo-font-size);
+}
+
+.title-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+
+.bx {
+  font-size: var(--button-font-size);
 }
 
 /*# sourceMappingURL=styles.css.map */

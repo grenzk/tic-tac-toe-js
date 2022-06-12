@@ -16,3 +16,9 @@
 .sign-text {
   font-size: var(--xo-font-size);
 }
+
+.title-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
