@@ -61,6 +61,7 @@ var renderTurn = function (square) {
   if (!selected) return
 
   square.setAttribute('disabled', '')
+  square.setAttribute('aria-pressed', 'true')
 
   // Update state
   currentState[selected] = turn
