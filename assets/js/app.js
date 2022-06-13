@@ -102,11 +102,14 @@ const resetGame = () => {
   currentState = boardState()
   historyState = []
   turn = 'X'
+
   winMessage.textContent = ''
-  enableSquares()
+
   squares.forEach(square => {
     square.children[0].textContent = ''
   })
+
+  enableSquares()
 }
 
 resetGame()
