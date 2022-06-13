@@ -68,7 +68,7 @@ const renderTurn = square => {
   let text = square.querySelector('.sign-text')
 
   // Get selected value
-  var selected = square.getAttribute('data-index')
+  let selected = square.getAttribute('data-index')
   if (!selected) return
 
   square.setAttribute('disabled', '')
