@@ -55,9 +55,14 @@ body {
   align-items: center;
 }
 
-.title-text {
+.title-text,
+.win-message {
   color: #ffd9e2;
   text-shadow: 0 0 0 transparent, 0 0 10px #ff003c, 0 0 20px rgba(255, 0, 60, 0.5);
+}
+
+.win-message {
+  margin-top: 5rem;
 }
 
 .buttons-container {
