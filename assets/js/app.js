@@ -26,8 +26,6 @@ const boardState = () => {
   return board
 }
 
-currentState = boardState()
-
 const createBoard = (() => {
   for (let i = 0; i < 9; i++) {
     let square = document.createElement('div')
@@ -64,6 +62,13 @@ const disableSquares = () => {
   })
 }
 
+const enableSquares = () => {
+  squares.forEach(square => {
+    square.removeAttribute('disabled')
+    square.removeAttribute('aria-pressed')
+  })
+}
+
 const renderTurn = square => {
   let text = square.querySelector('.sign-text')
 
@@ -93,14 +98,31 @@ const renderTurn = square => {
   turn = turn === 'X' ? 'O' : 'X'
 }
 
+const resetGame = () => {
+  currentState = boardState()
+  historyState = []
+  turn = 'X'
+  winMessage.textContent = ''
+  enableSquares()
+  squares.forEach(square => {
+    square.children[0].textContent = ''
+  })
+}
+
+resetGame()
+
 document.addEventListener(
   'click',
-  function (e) {
+  e => {
     if (
       e.target.matches('.square-field') &&
       !e.target.hasAttribute('disabled')
     ) {
       renderTurn(e.target)
+    }
+
+    if (e.target.matches('#js-reset-btn')) {
+      resetGame()
     }
   },
   false
