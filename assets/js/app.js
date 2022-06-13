@@ -64,7 +64,7 @@ const disableSquares = () => {
   })
 }
 
-var renderTurn = function (square) {
+const renderTurn = square => {
   let text = square.querySelector('.sign-text')
 
   // Get selected value
