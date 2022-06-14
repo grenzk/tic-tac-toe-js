@@ -105,6 +105,9 @@ const renderTurn = square => {
   currentState[selected] = turn
   text.textContent = turn
 
+  historyState.push(currentState.slice())
+  createHistory(winPatterns, selected)
+
   if (checkIfWin()) {
     winMessage.textContent = `Player ${turn} Wins!`
     disableSquares()
@@ -115,9 +118,6 @@ const renderTurn = square => {
     winMessage.textContent = `It's a Draw!`
     return
   }
-
-  historyState.push(currentState.slice())
-  createHistory(winPatterns, selected)
 
   // Update turn
   turn = turn === 'X' ? 'O' : 'X'
