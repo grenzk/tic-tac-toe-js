@@ -1,6 +1,6 @@
 const board = document.getElementById('js-board')
 const winMessage = document.getElementById('js-win-message')
-let historyList = document.getElementById('js-history-list')
+const historyList = document.getElementById('js-history-list')
 
 let historyState = []
 let currentState
