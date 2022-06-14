@@ -2,6 +2,7 @@
   display: grid;
   grid-template: repeat(3, 1fr) / repeat(3, 1fr);
   border: 3px solid rgba(38, 149, 255, 0.5);
+  box-shadow: 0px 0px 10px 1px rgba(38, 149, 255, 0.5);
   width: 61.2vmin;
   height: 61.2vmin;
 }
@@ -28,12 +29,48 @@
 }
 
 .title-text,
-.win-message {
+.history-text {
   color: #ffd9e2;
   text-shadow: 0 0 0 transparent, 0 0 10px #ff003c,
     0 0 20px rgba(255, 0, 60, 0.5);
 }
 
 .win-message {
-  margin-top: 5rem
+  color: #ffd9e2;
+  text-shadow: 0 0 21px #fff, 0 0 42px #f09, 0 0 82px #f09, 0 0 92px #f09,
+    0 0 102px #f09, 0 0 151px #f09;
+  font-size: 3rem;
+  text-align: center;
+  width: 61.2vmin;
+}
+
+.win-message-container {
+  position: absolute;
+  top: 2rem;
+}
+
+.flicker-slow {
+  animation: flicker 3s linear infinite;
+}
+
+@keyframes flicker {
+  0%,
+  19.999%,
+  22%,
+  62.999%,
+  64%,
+  64.999%,
+  70%,
+  100% {
+    //text-shadow: none;
+    opacity: 0.99;
+  }
+  20%,
+  21.999%,
+  63%,
+  63.999%,
+  65%,
+  69.999% {
+    opacity: 0.4;
+  }
 }

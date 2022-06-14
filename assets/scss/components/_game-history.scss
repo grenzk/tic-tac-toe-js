@@ -1,0 +1,79 @@
+.right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.history-container {
+  border-color: rgb(39, 39, 39);
+  border-radius: 10px;
+  border-style: solid;
+  width: 30rem;
+  height: 37.5rem;
+  padding: 1rem;
+  transition-duration: 0.5s;
+}
+
+.history-container::before {
+  position: absolute;
+  transform: translateY(-1.75rem);
+  background-color: black;
+  border-color: rgb(39, 39, 39);
+  border-radius: 3px;
+  border-style: solid;
+  display: block;
+  width: 2rem;
+  height: 1rem;
+  content: '';
+  transition-duration: 0.5s;
+}
+
+.history-container::after {
+  position: absolute;
+  transform: translateY(35.5rem) translateX(25rem);
+  background-color: black;
+  border-color: rgb(39, 39, 39);
+  border-radius: 3px;
+  border-style: solid;
+  display: block;
+  width: 2rem;
+  height: 1rem;
+  content: '';
+  transition-duration: 0.5s;
+}
+
+.history-container:hover {
+  border-color: rgb(250, 18, 18);
+  box-shadow: 0px 0px 10px 1px rgb(250, 18, 18);
+  cursor: default;
+  transition-duration: 0.5s;
+}
+
+.history-container:hover::before {
+  position: absolute;
+  transform: translateY(-1.75rem) translateX(25rem);
+  background-color: black;
+  border-color: rgb(250, 18, 18);
+  box-shadow: 0px 0px 10px 1px rgb(250, 18, 18);
+  border-radius: 3px;
+  border-style: solid;
+  display: block;
+  width: 2rem;
+  height: 1rem;
+  content: '';
+  transition-duration: 0.5s;
+}
+.history-container:hover::after {
+  position: absolute;
+  transform: translateY(35.5rem) translateX(0rem);
+  background-color: black;
+  border-color: rgb(250, 18, 18);
+  box-shadow: 0px 0px 10px 1px rgb(250, 18, 18);
+  border-radius: 3px;
+  border-style: solid;
+  display: block;
+  width: 2rem;
+  height: 1rem;
+  content: '';
+  transition-duration: 0.5s;
+}

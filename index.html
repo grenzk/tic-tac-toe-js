@@ -14,17 +14,25 @@
   </head>
   <body>
     <main class="main-container">
-      <div class="title-container">
-        <h1 class="title-text">TIC TAC TOE</h1>
-        <i class="bx bx-history"></i>
+      <div class="left">
+        <div class="title-container">
+          <h1 class="title-text">TIC TAC TOE</h1>
+          <i class="bx bx-history"></i>
+        </div>
+        <div class="board" id="js-board"></div>
+        <div class="buttons-container">
+          <i class="bx bx-chevron-left"></i>
+          <i class="bx bx-reset" id="js-reset-btn"></i>
+          <i class="bx bx-chevron-right"></i>
+        </div>
       </div>
-      <div class="board" id="js-board"></div>
-      <div class="buttons-container">
-        <i class="bx bx-chevron-left"></i>
-        <i class="bx bx-reset" id="js-reset-btn"></i>
-        <i class="bx bx-chevron-right"></i>
+      <div class="win-message-container">
+        <p class="win-message flicker-slow" id="js-win-message"></p>
       </div>
-      <p class="win-message" id="js-win-message"></p>
+      <div class="right">
+        <h1 class="history-text">Game History</h1>
+        <div class="history-container"></div>
+      </div>
     </main>
   </body>
 </html>
