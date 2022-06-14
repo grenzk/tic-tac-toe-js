@@ -4,7 +4,7 @@ const historyList = document.getElementById('js-history-list')
 
 let historyState = []
 let currentState
-let turn = 'X'
+let turn
 
 const winPatterns = [
   [0, 1, 2],
