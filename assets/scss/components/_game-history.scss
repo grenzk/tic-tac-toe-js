@@ -12,6 +12,7 @@
   height: 37.5rem;
   padding: 1rem;
   transition-duration: 0.5s;
+  position: relative;
 }
 
 .history-container::before {
@@ -76,4 +77,21 @@
   height: 1rem;
   content: '';
   transition-duration: 0.5s;
+}
+
+ol {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+ol li {
+  font-family: 'Fredoka One', cursive;
+  font-size: 1.5rem;
+  padding-left: 1rem;
+  margin-bottom: 1rem;
+  color: #ffd9e2;
+  text-shadow: 0 0 0 transparent, 0 0 10px #ff003c,
+    0 0 20px rgba(255, 0, 60, 0.5);
 }

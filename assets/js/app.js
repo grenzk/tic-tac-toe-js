@@ -1,5 +1,6 @@
 const board = document.getElementById('js-board')
 const winMessage = document.getElementById('js-win-message')
+let historyList = document.getElementById('js-history-list')
 
 let historyState = []
 let currentState
@@ -69,6 +70,27 @@ const enableSquares = () => {
   })
 }
 
+const createHistory = (winPatterns, selected) => {
+  let li = document.createElement('li')
+  let button = document.createElement('button')
+
+  selected = parseInt(selected)
+
+  let arr = winPatterns.find(winPattern => winPattern.includes(selected))
+  let x = winPatterns.indexOf(arr)
+  let y = arr.indexOf(selected)
+
+  if (historyState.length > 0) {
+    historyState.forEach((move, _index) => {
+      button.setAttribute('data-history', `${move.toString()}`)
+      button.textContent = `Player ${turn} moves at (${x}, ${y})`
+
+      li.appendChild(button)
+    })
+    historyList.appendChild(li)
+  }
+}
+
 const renderTurn = square => {
   let text = square.querySelector('.sign-text')
 
@@ -94,6 +116,9 @@ const renderTurn = square => {
     return
   }
 
+  historyState.push(currentState.slice())
+  createHistory(winPatterns, selected)
+
   // Update turn
   turn = turn === 'X' ? 'O' : 'X'
 }
@@ -108,6 +133,8 @@ const resetGame = () => {
   squares.forEach(square => {
     square.children[0].textContent = ''
   })
+
+  historyList.textContent = ''
 
   enableSquares()
 }
