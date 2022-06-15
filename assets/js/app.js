@@ -1,4 +1,10 @@
 const board = document.getElementById('js-board')
+const resetBtn = document.getElementById('js-reset-btn')
+const undoBtn = document.getElementById('js-undo-btn')
+const redoBtn = document.getElementById('js-redo-btn')
+const undoIcon = document.querySelector('bx-chevron-left')
+const redoIcon = document.querySelector('bx-chevron-right')
+
 const winMessage = document.getElementById('js-win-message')
 const historyList = document.getElementById('js-history-list')
 
@@ -114,6 +120,9 @@ const renderTurn = square => {
   if (checkIfWin()) {
     winMessage.textContent = `Player ${turn} Wins!`
     historyIndex = historyState.length - 1
+
+    undoBtn.disabled = false
+
     disableSquares()
     return
   }
@@ -121,6 +130,8 @@ const renderTurn = square => {
   if (checkIfDraw()) {
     winMessage.textContent = `It's a Draw!`
     historyIndex = historyState.length - 1
+
+    undoBtn.disabled = false
     return
   }
 
@@ -131,12 +142,19 @@ const renderTurn = square => {
 const undo = () => {
   let historyData = document.querySelectorAll('#js-history-list li')
 
-  historyIndex--
+  historyIndex -= 1
   displayData = historyState[historyIndex].flat()
 
   squares.forEach((square, index) => {
     square.children[0].textContent = displayData[index]
   })
+
+  if (historyIndex <= 0) {
+    undoBtn.disabled = true
+  }
+  if (historyData[historyIndex] !== undefined) {
+    redoBtn.disabled = false
+  }
 
   historyData[historyIndex].style.display = 'none'
 }
@@ -151,6 +169,14 @@ const redo = () => {
     square.children[0].textContent = displayData[index]
   })
 
+  if (historyData[historyIndex] === undefined) {
+    redoBtn.disabled = true
+  }
+
+  if (historyIndex > 0) {
+    undoBtn.disabled = false
+  }
+
   let redoItem = historyIndex - 1
 
   historyData[redoItem].style.display = 'list-item'
@@ -159,7 +185,14 @@ const redo = () => {
 const resetGame = () => {
   currentState = boardState()
   historyState = []
+  displayData = ''
+  historyIndex = ''
   turn = 'X'
+
+  if (historyIndex === '') {
+    undoBtn.disabled = true
+    redoBtn.disabled = true
+  }
 
   historyState.push(boardState())
 
@@ -185,18 +218,10 @@ document.addEventListener(
     ) {
       renderTurn(e.target)
     }
-
-    if (e.target.matches('#js-reset-btn')) {
-      resetGame()
-    }
-
-    if (e.target.matches('#js-undo-btn')) {
-      undo()
-    }
-
-    if (e.target.matches('#js-redo-btn')) {
-      redo()
-    }
   },
   false
 )
+
+resetBtn.addEventListener('click', resetGame)
+undoBtn.addEventListener('click', undo)
+redoBtn.addEventListener('click', redo)
