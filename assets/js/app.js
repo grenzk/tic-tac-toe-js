@@ -2,9 +2,12 @@ const board = document.getElementById('js-board')
 const winMessage = document.getElementById('js-win-message')
 const historyList = document.getElementById('js-history-list')
 
-let historyState = []
+let historyState
 let currentState
 let turn
+
+let historyIndex
+let displayData
 
 const winPatterns = [
   [0, 1, 2],
@@ -110,6 +113,7 @@ const renderTurn = square => {
 
   if (checkIfWin()) {
     winMessage.textContent = `Player ${turn} Wins!`
+    historyIndex = historyState.length - 1
     disableSquares()
     return
   }
@@ -123,10 +127,25 @@ const renderTurn = square => {
   turn = turn === 'X' ? 'O' : 'X'
 }
 
+const undo = () => {
+  let historyData = document.querySelectorAll('#js-history-list li')
+
+  historyIndex = historyIndex - 1
+  displayData = historyState[historyIndex].flat()
+
+  squares.forEach((square, index) => {
+    square.children[0].textContent = displayData[index]
+  })
+
+  historyData[historyIndex].style.display = 'none'
+}
+
 const resetGame = () => {
   currentState = boardState()
   historyState = []
   turn = 'X'
+
+  historyState.push(boardState())
 
   winMessage.textContent = ''
 
@@ -153,6 +172,13 @@ document.addEventListener(
 
     if (e.target.matches('#js-reset-btn')) {
       resetGame()
+    }
+
+    if (e.target.matches('#js-undo-btn')) {
+      undo()
+    }
+
+    if (e.target.matches('js-redo-btn')) {
     }
   },
   false
