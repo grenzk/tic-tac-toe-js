@@ -120,6 +120,7 @@ const renderTurn = square => {
 
   if (checkIfDraw()) {
     winMessage.textContent = `It's a Draw!`
+    historyIndex = historyState.length - 1
     return
   }
 
@@ -130,7 +131,7 @@ const renderTurn = square => {
 const undo = () => {
   let historyData = document.querySelectorAll('#js-history-list li')
 
-  historyIndex = historyIndex - 1
+  historyIndex--
   displayData = historyState[historyIndex].flat()
 
   squares.forEach((square, index) => {
@@ -138,6 +139,21 @@ const undo = () => {
   })
 
   historyData[historyIndex].style.display = 'none'
+}
+
+const redo = () => {
+  let historyData = document.querySelectorAll('#js-history-list li')
+
+  historyIndex++
+  displayData = historyState[historyIndex].flat()
+
+  squares.forEach((square, index) => {
+    square.children[0].textContent = displayData[index]
+  })
+
+  let redoItem = historyIndex - 1
+
+  historyData[redoItem].style.display = 'list-item'
 }
 
 const resetGame = () => {
@@ -178,7 +194,8 @@ document.addEventListener(
       undo()
     }
 
-    if (e.target.matches('js-redo-btn')) {
+    if (e.target.matches('#js-redo-btn')) {
+      redo()
     }
   },
   false
