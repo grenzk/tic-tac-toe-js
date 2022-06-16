@@ -81,6 +81,7 @@ const enableSquares = () => {
 
 const createHistory = (winPatterns, selected) => {
   let li = document.createElement('li')
+  let div = document.createElement('div')
   let button = document.createElement('button')
 
   selected = parseInt(selected)
@@ -94,9 +95,10 @@ const createHistory = (winPatterns, selected) => {
       button.setAttribute('data-history', `${move.toString()}`)
       button.textContent = `Player ${turn} moves at (${x}, ${y})`
 
+      div.appendChild(li)
       li.appendChild(button)
     })
-    historyList.appendChild(li)
+    historyList.appendChild(div)
   }
 }
 
@@ -140,7 +142,7 @@ const renderTurn = square => {
 }
 
 const undo = () => {
-  let historyData = document.querySelectorAll('#js-history-list li')
+  let historyData = document.querySelectorAll('#js-history-list div')
 
   historyIndex -= 1
   displayData = historyState[historyIndex].flat()
@@ -160,7 +162,7 @@ const undo = () => {
 }
 
 const redo = () => {
-  let historyData = document.querySelectorAll('#js-history-list li')
+  let historyData = document.querySelectorAll('#js-history-list div')
 
   historyIndex++
   displayData = historyState[historyIndex].flat()
@@ -179,7 +181,7 @@ const redo = () => {
 
   let redoItem = historyIndex - 1
 
-  historyData[redoItem].style.display = 'list-item'
+  historyData[redoItem].style.display = 'block'
 }
 
 const resetGame = () => {
