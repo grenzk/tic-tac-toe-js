@@ -15,11 +15,16 @@
   box-shadow: 0px 0px 10px 1px rgba(38, 149, 255, 0.5);
 }
 
-.sign-text {
+.sign-text,
+.turn-text {
   color: #ffd9e2;
   font-size: var(--xo-font-size);
   text-shadow: 0 0 0 transparent, 0 0 10px #ff003c,
     0 0 20px rgba(255, 0, 60, 0.5);
+}
+
+.turn-text {
+  font-size: 3rem;
 }
 
 .title-container {

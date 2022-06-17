@@ -14,6 +14,10 @@
   </head>
   <body>
     <main class="main-container">
+      <div class="scores-container">
+        <p class="x-score">Player X : <span id="js-xScore-text">0</span></p>
+        <p class="o-score">Player O : <span id="js-oScore-text">0</span></p>
+      </div>
       <div class="left">
         <div class="title-container">
           <h1 class="title-text">TIC TAC TOE</h1>
@@ -21,9 +25,24 @@
         </div>
         <div class="board" id="js-board"></div>
         <div class="buttons-container">
-          <button class="game-button" id="js-undo-btn"><i class="bx bx-chevron-left"></i></button>
-          <button class="game-button" id="js-reset-btn"><i class="bx bx-reset"></i></button>
-          <button class="game-button" id="js-redo-btn"><i class="bx bx-chevron-right"></i></button>
+          <button class="game-button" id="js-undo-btn">
+            <i class="bx bx-chevron-left"></i>
+          </button>
+          <button class="game-button" id="js-reset-btn">
+            <i class="bx bx-reset"></i>
+          </button>
+          <button class="game-button" id="js-redo-btn">
+            <i class="bx bx-chevron-right"></i>
+          </button>
+        </div>
+        <div class="bottom">
+          <div class="x-avatar">
+            <img class="x-image" src="./assets/gifs/skeleton-idle.gif" alt="" />
+          </div>
+          <p class="turn-text" id="js-symbol">X</p>
+          <div class="o-avatar">
+            <img class="o-image" src="./assets/gifs/skeleton-idle.gif" alt="" />
+          </div>
         </div>
       </div>
       <div class="win-message-container">

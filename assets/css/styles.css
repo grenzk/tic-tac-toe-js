@@ -2,6 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
 :root {
   --body-font: "Monoton", cursive;
+  --scores-font: "Poppins", sans-serif;
   --xo-font-size: 5rem;
   --button-font-size: 2rem;
 }
@@ -56,10 +57,15 @@ body {
   box-shadow: 0px 0px 10px 1px rgba(38, 149, 255, 0.5);
 }
 
-.sign-text {
+.sign-text,
+.turn-text {
   color: #ffd9e2;
   font-size: var(--xo-font-size);
   text-shadow: 0 0 0 transparent, 0 0 10px #ff003c, 0 0 20px rgba(255, 0, 60, 0.5);
+}
+
+.turn-text {
+  font-size: 3rem;
 }
 
 .title-container {
@@ -291,6 +297,33 @@ div li {
 
 .bx:hover {
   transform: scale(2);
+}
+
+.bottom {
+  display: flex;
+  position: absolute;
+  bottom: 2rem;
+}
+
+.o-image,
+.x-image {
+  image-rendering: -moz-crisp-edges;
+  width: 55px;
+  height: 60px;
+  transform: scaleX(-1);
+}
+
+.x-image {
+  transform: scaleX(1);
+}
+
+.scores-container {
+  font-family: "Poppins", sans-serif;
+  position: absolute;
+  left: 1rem;
+  top: 1rem;
+  display: flex;
+  flex-direction: column;
 }
 
 /*# sourceMappingURL=styles.css.map */

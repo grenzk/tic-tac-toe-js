@@ -1,0 +1,17 @@
+.bottom {
+  display: flex;
+  position: absolute;
+  bottom: 2rem;
+}
+
+.o-image,
+.x-image {
+  image-rendering: -moz-crisp-edges;
+  width: 55px;
+  height: 60px;
+  transform: scaleX(-1);
+}
+
+.x-image {
+  transform: scaleX(1);
+}

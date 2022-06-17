@@ -2,8 +2,12 @@ const board = document.getElementById('js-board')
 const resetBtn = document.getElementById('js-reset-btn')
 const undoBtn = document.getElementById('js-undo-btn')
 const redoBtn = document.getElementById('js-redo-btn')
+const currentIcon = document.getElementById('js-symbol')
 const undoIcon = document.querySelector('bx-chevron-left')
 const redoIcon = document.querySelector('bx-chevron-right')
+
+const xScore = document.getElementById('js-xScore-text')
+const oScore = document.getElementById('js-oScore-text')
 
 const winMessage = document.getElementById('js-win-message')
 const historyList = document.getElementById('js-history-list')
@@ -14,6 +18,11 @@ let turn
 
 let historyIndex
 let displayData
+
+let scores = {
+  X: 0,
+  O: 0,
+}
 
 const winPatterns = [
   [0, 1, 2],
@@ -123,6 +132,9 @@ const renderTurn = square => {
     winMessage.textContent = `Player ${turn} Wins!`
     historyIndex = historyState.length - 1
 
+    scores[turn]++
+    updateScores()
+
     undoBtn.disabled = false
 
     disableSquares()
@@ -139,6 +151,7 @@ const renderTurn = square => {
 
   // Update turn
   turn = turn === 'X' ? 'O' : 'X'
+  currentIcon.textContent = turn
 }
 
 const undo = () => {
@@ -184,12 +197,19 @@ const redo = () => {
   historyData[redoItem].style.display = 'block'
 }
 
+const updateScores = () => {
+  xScore.textContent = scores.X
+  oScore.textContent = scores.O
+}
+
 const resetGame = () => {
   currentState = boardState()
   historyState = []
   displayData = ''
   historyIndex = ''
   turn = 'X'
+
+  currentIcon.textContent = turn
 
   if (historyIndex === '') {
     undoBtn.disabled = true
