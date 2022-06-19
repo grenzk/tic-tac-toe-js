@@ -86,7 +86,7 @@ const createHistory = (winPatterns, selected) => {
   let y = arr.indexOf(selected)
 
   if (historyState.length > 0) {
-    historyState.forEach((move) => {
+    historyState.forEach(move => {
       button.setAttribute('data-history', `${move.toString()}`)
       button.textContent = `Player ${turn} moves at (${x}, ${y})`
 
