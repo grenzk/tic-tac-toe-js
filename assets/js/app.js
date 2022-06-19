@@ -1,7 +1,9 @@
-const board = document.getElementById('js-board')
+const squares = document.querySelectorAll('.square-field')
+
 const resetBtn = document.getElementById('js-reset-btn')
 const undoBtn = document.getElementById('js-undo-btn')
 const redoBtn = document.getElementById('js-redo-btn')
+
 const currentIcon = document.getElementById('js-symbol')
 const undoIcon = document.querySelector('bx-chevron-left')
 const redoIcon = document.querySelector('bx-chevron-right')
@@ -44,22 +46,6 @@ const boardState = () => {
 
   return board
 }
-
-const createBoard = (() => {
-  for (let i = 0; i < 9; i++) {
-    let square = document.createElement('div')
-    let sign = document.createElement('p')
-
-    square.classList.add('square-field')
-    square.setAttribute('data-index', i)
-    sign.classList.add('sign-text')
-
-    square.appendChild(sign)
-    board.appendChild(square)
-  }
-})()
-
-const squares = document.querySelectorAll('.square-field')
 
 const checkIfWin = () => {
   return winPatterns.some(winPattern => {
