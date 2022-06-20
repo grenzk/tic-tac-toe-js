@@ -147,26 +147,25 @@ ol div:hover::before {
   transition-duration: 0.5s;
 }
 
-ol div:hover::after
-{
-    position: absolute;
-    transform: translateY(0.2rem)translateX(0rem);
-    background-color: black;
-    border-style: solid;
-    border-color: rgb(35, 94, 255);
-    box-shadow: 0px 0px 10px 1px rgba(35,94,255,0.78);
-    width: 10px;
-    height: 5px;
-    display: block;
-    content: "";
-    transition-duration: .5s;
+ol div:hover::after {
+  position: absolute;
+  transform: translateY(0.2rem) translateX(0rem);
+  background-color: black;
+  border-style: solid;
+  border-color: rgb(35, 94, 255);
+  box-shadow: 0px 0px 10px 1px rgba(35, 94, 255, 0.78);
+  width: 10px;
+  height: 5px;
+  display: block;
+  content: '';
+  transition-duration: 0.5s;
 }
 
 div li {
   padding-left: 0.5rem;
 }
 
-[data-history] {
+div li button {
   color: #fff;
   font-size: 1.3rem;
   background: transparent;

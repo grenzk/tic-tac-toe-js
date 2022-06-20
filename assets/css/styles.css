@@ -273,7 +273,7 @@ div li {
   padding-left: 0.5rem;
 }
 
-[data-history] {
+div li button {
   color: #fff;
   font-size: 1.3rem;
   background: transparent;

@@ -26,7 +26,7 @@ let scores = {
   O: 0,
 }
 
-const winPatterns = [
+const WIN_PATTERNS = [
   [0, 1, 2],
   [3, 4, 5],
   [6, 7, 8],
@@ -48,7 +48,7 @@ const boardState = () => {
 }
 
 const checkIfWin = () => {
-  return winPatterns.some(winPattern => {
+  return WIN_PATTERNS.some(winPattern => {
     return winPattern.every(pos => {
       return squares[pos].textContent === turn
     })
@@ -86,8 +86,7 @@ const createHistory = (winPatterns, selected) => {
   let y = arr.indexOf(selected)
 
   if (historyState.length > 0) {
-    historyState.forEach(move => {
-      button.setAttribute('data-history', `${move.toString()}`)
+    historyState.forEach(() => {
       button.textContent = `Player ${turn} moves at (${x}, ${y})`
 
       div.appendChild(li)
@@ -112,7 +111,7 @@ const renderTurn = square => {
   text.textContent = turn
 
   historyState.push(currentState.slice())
-  createHistory(winPatterns, selected)
+  createHistory(WIN_PATTERNS, selected)
 
   if (checkIfWin()) {
     winMessage.textContent = `Player ${turn} Wins!`
