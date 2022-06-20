@@ -142,7 +142,7 @@ const renderTurn = square => {
 const undo = () => {
   let historyData = document.querySelectorAll('#js-history-list div')
 
-  historyIndex -= 1
+  historyIndex--
   displayData = historyState[historyIndex].flat()
 
   squares.forEach((square, index) => {
